@@ -14,6 +14,10 @@ The analog values change between 0 and 1023, in other words they have a 10 bit v
 
 **How might you use this with only the parts in your kit? Show us your solution.**
 
+I connected the RGB LED to pins 9, 10, 13, and each of the colored legs to a resistance of 1kOhm. Despite that, the LED was too bright to discern better the colors so I used a photoresistor for the red leg to see if the red will appear dimmer. It somehow did appear dimmer, but I was not convinced.
+
+[Link to video](https://photos.app.goo.gl/MV5qYjsxaNbFD8Y28)
+
 ## Part C. Voltage Varying Sensors 
  
 ### 1. FSR, Flex Sensor, Photo cell, Softpot
@@ -24,7 +28,9 @@ After converting the analog to digital reading to voltages, I was able to get va
 
 **b. What kind of relationship does the voltage have as a function of the force applied? (e.g., linear?)**
 
-At a glance it seems to be logarithmic, but it is hard to tell as it is hard to exert a force that is constantly increasing.
+At a glance it seems to be logarithmic, but it is hard to tell as it is hard to exert a force that is constantly increasing. All things considered, it is a positive correlation.
+
+[Link to Color LED code](https://github.com/noelkonagai/interactive-devices/blob/master/Lab%203/led_color.ino)
 
 ![FSR Reading Image](https://github.com/noelkonagai/interactive-devices/blob/master/Lab%203/Screen%20Shot%202019-09-21%20at%207.15.38%20PM.png)
 
