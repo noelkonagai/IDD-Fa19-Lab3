@@ -20,9 +20,17 @@ The analog values change between 0 and 1023, in other words they have a 10 bit v
 
 **a. What voltage values do you see from your force sensor?**
 
+After converting the analog to digital reading to voltages, I was able to get values between 0.1 to 3.8Vs. I was not able to exert enough force to get closer to 5V.
+
 **b. What kind of relationship does the voltage have as a function of the force applied? (e.g., linear?)**
 
+At a glance it seems to be logarithmic, but it is hard to tell as it is hard to exert a force that is constantly increasing.
+
+![FSR Reading Image](https://github.com/noelkonagai/interactive-devices/blob/master/Lab%203/Screen%20Shot%202019-09-21%20at%207.15.38%20PM.png)
+
 **c. Can you change the LED fading code values so that you get the full range of output voltages from the LED when using your FSR?**
+
+
 
 **d. What resistance do you need to have in series to get a reasonable range of voltages from each sensor?**
 
