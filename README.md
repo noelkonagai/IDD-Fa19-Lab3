@@ -36,11 +36,31 @@ At a glance it seems to be logarithmic, but it is hard to tell as it is hard to 
 
 **c. Can you change the LED fading code values so that you get the full range of output voltages from the LED when using your FSR?**
 
+Yes. I used the input from the FSR coming in at A0 pin, mapped it to range between 0 and 255, and wrote it to the LED pin. Below the code snippet demonstrates this.
 
+```java
+fsrReading = analogRead(fsrPin);
+fsrLED = map(fsrReading, 0, 1023, 0, 255);   
+analogWrite(led, fsrLED);
+```
+Link to FSR Fading LED [code](https://github.com/noelkonagai/interactive-devices/blob/master/Lab%203/fsr_led_fade.ino)
+Link to [video](https://photos.app.goo.gl/nKdNUExjPa1w256cA)
 
 **d. What resistance do you need to have in series to get a reasonable range of voltages from each sensor?**
 
+Photo cell needed about 2kOhm of resistance and the help of my Phone's flashlight. 
+
+Softpot needed 10kOhm of resistance.
+
+Flex sensor needed 25kOhm of resistance.
+
 **e. What kind of relationship does the resistance have as a function of stimulus? (e.g., linear?)**
+
+Photo cell increases its resistance when it's darker, thus with the brightness the resistance has an inverse relationship.
+
+As for the softpot, its resistance has a linear relationship to the distance from the touching point to the connected end.
+
+The flex sensor's resistance decreases as it is bent forwards, and it increases as it is bent backwards.
 
 ### 2. Accelerometer
  
