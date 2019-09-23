@@ -91,6 +91,7 @@ setColor(x, y, z);
 ```
 
 Link to [code](https://github.com/noelkonagai/interactive-devices/blob/master/Lab%203/accelerometer_LED.ino)
+
 Link to [video](https://photos.app.goo.gl/5LgmESzC5Gz6ThMq5)
 
 ## Part E. Graphic Display
@@ -117,7 +118,7 @@ void loop() {
 }
 ```
 
-![Image of OLED](https://photos.app.goo.gl/CWL7hjRyBssiJeqt7)
+![Image of OLED](https://github.com/noelkonagai/interactive-devices/blob/master/Lab%203/OLED_analog0.jpg)
 
 ## Part F. Logging values to the EEPROM and reading them back
  
