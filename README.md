@@ -64,7 +64,7 @@ As for the softpot, its resistance has a linear relationship to the distance fro
 
 The flex sensor's resistance decreases as it is bent forwards, and it increases as it is bent backwards.
 
-### 2. Accelerometer
+### Part D. Accelerometer
  
 **a. Include your accelerometer read-out code in your write-up.**
 
@@ -93,21 +93,39 @@ setColor(x, y, z);
 Link to [code](https://github.com/noelkonagai/interactive-devices/blob/master/Lab%203/accelerometer_LED.ino)
 Link to [video](https://photos.app.goo.gl/5LgmESzC5Gz6ThMq5)
 
-### 3. IR Proximity Sensor
+## Part E. Graphic Display
 
-**a. Describe the voltage change over the sensing range of the sensor. A sketch of voltage vs. distance would work also. Does it match up with what you expect from the datasheet?**
+**Modify the example code so that you can print out the output of the A0 pin. Include your code in your lab report.**
 
-**b. Upload your merged code to your lab report repository and link to it here.**
+I created a loop where the A0 pin is read and it gets dipsplayed to the OLED.
 
-## Optional. Graphic Display
+```java
+void loop() {
+  sensorValue = analogRead(sensorPin);
+ 
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.clearDisplay();
+  display.setCursor(0,0);
+  display.println("Analog 0:");
+  display.setCursor(0, 12);
+  display.println(sensorValue);
+  Serial.print(sensorValue);
+  display.display();
 
-**Take a picture of your screen working insert it here!**
+}
+```
 
-## Part D. Logging values to the EEPROM and reading them back
+![Image of OLED](https://photos.app.goo.gl/CWL7hjRyBssiJeqt7)
+
+## Part F. Logging values to the EEPROM and reading them back
  
 ### 1. Reading and writing values to the Arduino EEPROM
 
 **a. Does it matter what actions are assigned to which state? Why?**
+
+
 
 **b. Why is the code here all in the setup() functions and not in the loop() functions?**
 
