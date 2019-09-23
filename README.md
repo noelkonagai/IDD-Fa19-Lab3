@@ -5,9 +5,11 @@
 ## Part A.  Writing to the Serial Monitor
  
 **a. Based on the readings from the serial monitor, what is the range of the analog values being read?**
+
 The analog values change between 0 and 1023, in other words they have a 10 bit value.
  
 **b. How many bits of resolution does the analog to digital converter (ADC) on the Arduino have?**
+
 10 bits.
 
 ## Part B. RGB LED
@@ -65,6 +67,31 @@ The flex sensor's resistance decreases as it is bent forwards, and it increases 
 ### 2. Accelerometer
  
 **a. Include your accelerometer read-out code in your write-up.**
+
+First to the LCD screen I write the acceleration values.
+```java
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print("X:"); lcd.print(event.acceleration.x); lcd.print(" ");
+lcd.print("Y:"); lcd.print(event.acceleration.y); lcd.print(" ");
+lcd.setCursor(0,1);
+lcd.print("Z:"); lcd.print(event.acceleration.z);
+```
+
+Then I map the acceleration values to the range of 0 to 255. Here I gave -10 and 10 or 20 as the bounding edges, because by inspection the acceleration values didn't exceed these values, but this also meant that at the upper and lower ends of the 0-255 range I will not get RGB values. Then I set the color of the LED using these values.
+
+```java
+x = map(event.acceleration.x, -10, 10, 0, 255);
+y = map(event.acceleration.y, -10, 10, 0, 255);
+z = map(event.acceleration.z, -10, 20, 0, 255);
+
+Serial.print(x); Serial.print(","); Serial.print(y); Serial.print(","); Serial.print(z); Serial.println();
+
+setColor(x, y, z);
+```
+
+Link to [code](https://github.com/noelkonagai/interactive-devices/blob/master/Lab%203/accelerometer_LED.ino)
+Link to [video](https://photos.app.goo.gl/5LgmESzC5Gz6ThMq5)
 
 ### 3. IR Proximity Sensor
 
