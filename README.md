@@ -126,17 +126,29 @@ void loop() {
 
 **a. Does it matter what actions are assigned to which state? Why?**
 
-
+The order does matter. Let's say we switch up clear/write/read to a different order write/clear/read then we would not be able to read what we wrote.
 
 **b. Why is the code here all in the setup() functions and not in the loop() functions?**
 
+Because we only want to clear/write/read once every time that state is triggered. Otherwise, imagine a scenario when one loops over writing and manages to change states while the writing hasn't been finished. This would probably read to erroneous writing of the string.
+
 **c. How many byte-sized data samples can you store on the Atmega328?**
+
+You can write 1024 byte-sized data samples on Atmega328.
 
 **d. How would you get analog data from the Arduino analog pins to be byte-sized? How about analog data from the I2C devices?**
 
+A byte-sized data is equal to 8 bits, this means a value that is in the range of 0-255. We can use the map function to map the analog reading of 0-1023 to 0-255. As for I2C devices, we would need to figure out the range in which the reading value varies and map it to 0-255.
+
 **e. Alternately, how would we store the data if it were bigger than a byte? (hint: take a look at the [EEPROMPut](https://www.arduino.cc/en/Reference/EEPROMPut) example)**
 
+You can use the EEPROM.put() function, which allows to write data of primitive types or struct types. When the data is bigger it can store it in consecutive addresses.
+
 **Upload your modified code that takes in analog values from your sensors and prints them back out to the Arduino Serial Monitor.**
+
+The analog values were printed back to the Arduino Serial Monitor with ```Serial.println(analogRead(sensorPin));```.
+
+Link to [code](https://github.com/noelkonagai/interactive-devices/blob/master/Lab%203/switch_state/SwitchState2.ino)
 
 ### 2. Design your logger
  
